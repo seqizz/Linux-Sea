@@ -2,345 +2,314 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter>
-  <title>What is Linux?</title>
+  <title>Linux Nedir?</title>
 
   <section>
-    <title>Introduction</title>
+    <title>Giriş</title>
 
-    <para>Within the realms of desktop environments, Linux is supposedly no
-    large player (market investigations estimate a market share of about 3%).
-    However, you'll most likely know two or more people who use Linux, some of
-    them even exclusively. If you take that into consideration, either you
-    know the personal OS preference of over a hundred people (you're popular)
-    or the estimation is to be taken with a grain of salt.</para>
+    <para>Masaüstü sistemlerin gerçeklerine baktığımızda, Linux o kadar da 
+    büyük bir pazar payına sahip değil (pazar araştırmaları ortalama %3 
+    göstermekte). Yine de muhtemelen iki veya daha fazla Linux kullanan 
+    tanıdığınız vardır.</para>
 
-    <para>Nevertheless, 3% is still a lot (ever thought about how many desktop
-    systems there are? I did, never found the answer though). And if we take
-    other markets into account (embedded systems, servers, network appliances
-    and more) the Linux share increases.</para>
+    <para>Her neyse, %3 az bir rakama denk gelmez. Hiç toplam kaç masaüstü 
+    bilgisayar bulunduğunu düşündünüz mü? (Ben yaptım, işin içinden çıkamadım) 
+    Hatta diğer pazarları da işin içine katarsanız (gömülü sistemler, sunucular vs) 
+    Linux'un pazar payı artmakta.</para>
 
-    <para>But still, many people have no idea what Linux is or how to work
-    with it. In this book, I offer a technical, quick introduction to the
-    Linux operating system from a users perspective. I'm not going to dive
-    into the concept, advantages or disadvantages of Free Software (although a
-    few paragraphs don't hurt) and am not going to talk about the history and
-    evolution of Linux Operating Systems. For more resources on these subjects
-    I refer you to the <link linkend="whatislinux_resources">Further
-    Resources</link> section at the end of this chapter.</para>
+    <para>Yine de, çoğu insanın Linux'un ne olduğu ve nasıl kullanılacağı 
+    hakkında bir fikri bulunmamakta. Bu kitapta, bir kullanıcının gözüyle, 
+    teknik ve hızlı bir biçimde Linux işletim sistemine giriş yapacağız. 
+    Özgür yazılımın avantajları ve dezavantajlarına fazla dalmayacağım 
+    (birkaç paragraftan kimseye zarar gelmez) ve Linux işletim sisteminin 
+    tarihçesinden de bahsetmeyeceğim. Bu konular hakkında daha detaylı bilgiyi 
+    bu bölümün sonundaki <link linkend="whatislinux_resources">Diğer Kaynaklar</link> 
+    bölümünde bulabilirsiniz.</para>
 
-    <para>For a book to be complete about Linux as an operating system, it is
-    important to inform the user about operating systems in general. Linux is
-    very modular and open, meaning that each component in the Linux Operating
-    System is visible to the user. Without understanding of the structure of
-    an operating system it would be hard for a user to comprehend the
-    reasoning behind each module in the Linux OS. For this reason alone I
-    devote an entire section on operating systems in general.</para>
+    <para>Linux işletim sisteminin tümünü kapsayan bir kitap olmak için, 
+    "işletim sistemi" tanımının üzerinde durmakta fayda var. Linux modüler 
+    ve açık bir sistemdir. Yani Linux işletim sisteminin her parçası kullanıcı 
+    tarafından incelenebilir bir biçimde şeffaftır. İşletim sisteminin 
+    yapısını anlamadıkça bu parçaları değerlendirmek bir kullanıcı için 
+    imkansız. Bu yüzden bu bölümde işletim sistemi kavramını açıklayacağım.</para>
 
-    <para>Once I have crossed the tasks of an operating system, I continue
-    with an explanation on the real Linux operating systems: Linux
-    distributions.</para>
+    <para>İşletim sisteminin görevlerinden bahsettikten sonra, gerçek Linux 
+    işletim sistemleri ile devam edeceğim: Linux dağıtımları.</para>
 
-    <para>Finally, each chapter in this book will offer a set of exercises
-    that you could attempt to solve. You will not be able to find the answers
-    of each question in this book. Rather see the exercises as a means to push
-    you further and help you seek (and find) more topics related to Linux. At
-    the end of the book, a list of tips and/or answers is given for each
-    question.</para>
+    <para>Her bölümün sonunda size verilecek birtakım alıştırmalar olacak. 
+    Her sorunun cevabını bu kitapta bulamayabilirsiniz. Bu yüzden 
+    Linux ile ilgili diğer kaynakları araştırmanız gerekecek. 
+    Kitabın sonunda sorular için cevap veya ipuçları yer almakta.</para>
   </section>
 
   <section>
-    <title>The Anatomy of an Operating System</title>
+    <title>Bir İşletim Sisteminin Anatomisi</title>
 
-    <para>An operating system is actually a stack of software, each item
-    designed for a specific purpose.</para>
+    <para>Bir işletim sistemi aslında hepsi özel bir amaç için dizayn 
+    edilmiş bir yığın yazılımdan oluşur. Şimdi çekirdek, kütüphaneler, 
+    sistem araçları ve geliştirme araçlarına göz atalım.</para>
 
     <itemizedlist>
       <listitem>
-        <para>The <emphasis>kernel</emphasis> is the core of an operating
-        system: it manages communication between devices and software, manages
-        the system resources (like CPU time, memory, network, ...) and shields
-        off the complexity of device programming from the developer as it
-        provides an interface for the programmer to manipulate
-        hardware.</para>
+        <para><emphasis>Çekirdek</emphasis> bir işletim sisteminin 
+        merkezini oluşturur: Donanım ile yazılım arasındaki iletişimi sağlar, 
+        sistem kaynaklarını yönetir (İşlemci, ağ, hafıza gibi) 
+        ve programcılara arayüzler sunarak aygıta yönelik 
+        programlamanın zorluğunu aşmaya yardımcı olur.</para>
       </listitem>
 
       <listitem>
-        <para>The <emphasis>system libraries</emphasis> contain program
-        methods for developers to write software for the operating system. The
-        libraries contain methods for process creation and manipulation, file
-        handling, network programming, etc. It is a vital part of an operating
-        system because you can't (or shouldn't) communicate with the kernel
-        directly: the library shields off the complexity of kernel programming
-        for the system programmer.</para>
+        <para><emphasis>Sistem kütüphaneleri</emphasis> de programcıların 
+        işletim sistemi için programlar yazmasına yardımcı olacak işlemleri 
+        depolar. Kütüphanelerde işlem oluşturma ve yönetimi, dosya işlemleri 
+        ve ağ programlama gibi konularda önceden tanımlanmış yöntemler bulunur. 
+        Kütüphaneler işletim sisteminin önemli bir parçasıdır 
+        çünkü çekirdekle direkt olarak iletişime geçemezsiniz (geçmemelisiniz): 
+        Kütüphaneler bu yüzden çekirdeğin karmaşık yapısına müdahale etmeden 
+        uygulama yazmaya yardımcı olur.</para>
       </listitem>
 
       <listitem>
-        <para>The <emphasis>system tools</emphasis> are built using the system
-        libraries and enable administrators to administer the system: manage
-        processes, navigate on the file system, execute other applications,
-        configure the network, ...</para>
+        <para><emphasis>Sistem araçları</emphasis> sistem kütüphaneleri 
+        kullanılarak yöneticilerin sistemi yönetmesi için oluşturulmuştur. 
+        Sistemi yönetmek dediğimizde buna işlemleri yönetmek, 
+        dosya sisteminde dolaşmak, uygulamaları çalıştırmak, ağı ayarlamak 
+        gibi işlemler girer.</para>
       </listitem>
 
       <listitem>
-        <para>The <emphasis>development tools</emphasis> provide the means to
-        build new software on (or for) the system. Although not a required
-        part of an operating system I do like to mention it because with
-        Gentoo, this is a requirement (we'll see later on why this is the
-        case). These tools include compilers (translate code to machine code),
-        linkers (which collect machine code and bring it together into a
-        working binary) and tools that ease the build process
-        considerably.</para>
+        <para><emphasis>Geliştirme araçları</emphasis> sistemde 
+        yeni uygulamalar oluşturmak için vardır. Sistemin çalışması için 
+        gerekli bir parça değildir. Ancak Gentoo için gereklidir (bunun 
+        sebebi üzerinde daha sonra duracağız). Bu araçlar derleyicileri 
+        (kodları makinanın anlayacağı dile çeviren uygulamalar), 
+        bağlayıcılar (makina kodunu toplayıp çalışan bir dosya oluşturan 
+        uygulamalar) ve diğer yardımcı araçlardan oluşur.</para>
       </listitem>
     </itemizedlist>
 
-    <para>Other libraries on the system enhance the developers' coding
-    experience by providing access to methods other developers have already
-    written. Examples of such libraries include graphical libraries (for
-    manipulating windows) or scientific libraries. They aren't required on
-    every operating system, but if you want to run a specific tool, it will
-    require certain libraries to be installed on your system. On top of those
-    additional libraries you will find the end-user tools (office suites,
-    multimedia tools, graphical environments, ...) that you want to install on
-    your operating system.</para>
+    <para>Sistemdeki diğer kütüphaneler de geliştiricilerin işini, diğer 
+    geliştiricilerin önceden yazdığı kodları kullanmasına olanak sağlayarak, 
+    kolaylaştıran dosyalardır. Bu tür kütüphanelere grafiksel kütüphaneler 
+    (pencere yönetimi için) ve bilimsel kütüphaneler örnek verilebilir. 
+    Her işletim sisteminde mecburi olmamalarına rağmen eğer özel bir 
+    uygulama çalıştırmak isterseniz (Örn. ofis uygulamaları, 
+    çoklu ortam uygulamaları...) çalışması için bağımlı olduğu 
+    kütüphanelerin de sistemde bulunması lazım.</para>
 
     <section>
-      <title>Kernel</title>
+      <title>Çekirdek</title>
 
-      <para>A kernel <indexterm>
+      <para>Çekirdek<indexterm>
           <primary>kernel</primary>
-        </indexterm>has generally four basic responsibilities:</para>
+        </indexterm>genellikle dört temel sorumluluğa sahiptir:</para>
 
       <itemizedlist>
         <listitem>
-          <para>device management</para>
+          <para>aygıt yönetimi</para>
         </listitem>
 
         <listitem>
-          <para>memory management</para>
+          <para>hafıza yönetimi</para>
         </listitem>
 
         <listitem>
-          <para>process management</para>
+          <para>işlem yönetimi</para>
         </listitem>
 
         <listitem>
-          <para>handling system calls</para>
+          <para>sistem çağrılarının değerlendirilmesi</para>
         </listitem>
       </itemizedlist>
 
-      <para>The first responsibility is called <emphasis>device
-      management</emphasis><indexterm>
-          <primary>device management</primary>
-        </indexterm>. A computer system has several devices connected to it:
-      not only the CPU and memory are available, but also disks (and disk
-      controllers), network cards, graphical cards, sound cards, ... Because
-      every device operates differently, the kernel is required to know what
-      the device can do and how to address and manipulate each device so that
-      it plays nice in the entire system. This information is stored in the
-      device driver: without such driver, the kernel doesn't know the device
-      and will therefore not be able to control it.</para>
+      <para>İlk sorumluluk <emphasis>aygıt yönetimidir</emphasis><indexterm>
+          <primary>aygıt yönetimi</primary>
+        </indexterm>. Bir bilgisayar sistemine birçok aygıt (donanım) 
+      bağlıdır. Sadece işlemci ve RAM değil, diskler, ağ donanımları, 
+      ekran kartları, ses kartları vs. Her donanım farklı çalıştığı için, 
+      çekirdeğin donanımın özelliklerini ve kullanılış biçimlerini bilmesi 
+      gerekmektedir. Bu bilgiler çekirdekteki aygıt sürücüsünde saklanır. 
+      Bu sürücü olmadan çekirdek aygıtı tanıyamayacak, bu yüzden 
+      kontrol etmesi de mümkün olmayacaktır.</para>
 
-      <para>Next to the device drivers, the kernel also manages the
-      communication between the devices: it governs access to the shared
-      components so that all drivers can happily operate next to each other.
-      All communication must adhere to strict rules and the kernel makes sure
-      that these rules are followed.</para>
+      <para>Aygıt sürücüleri ile beraber, çekirdek ayrıca aygıtlar 
+      arasındaki iletişimi de yönetir. Paylaşılan bileşenleri yöneterek 
+      bütün sürücülerin birlikte sorunsuz çalışmasından sorumludur. Bütün 
+      iletişim kesin kurallara dayanır, çekirdek de bu kurallara 
+      uyulduğundan emin olur.</para>
 
-      <para>The <emphasis>memory management</emphasis> <indexterm>
-          <primary>memory management</primary>
-        </indexterm>component manages the memory usage of the system: it keeps
-      track of used and unused memory, assigns memory to processes who require
-      it and ensures that processes can't manipulate the data of one another. To do
-      this, it uses the concept of virtual memory addresses: addresses for one
-      process are not the real addresses, and the kernel keeps track of the
-      correct mappings. It is also possible for data not to be really present
-      in memory although it is present for a process: such data is stored on a
-      swap space. Because swap space is much, much slower than real memory,
-      use of this space should be limited to data that isn't read
-      often.</para>
+      <para><emphasis>Hafıza yönetimi</emphasis> <indexterm>
+          <primary>hafıza yönetimi</primary>
+        </indexterm>bileşeni kullanılan ve kullanılmayan hafızayı kontrol 
+      altında tutar, gerekli işlemlere hafıza alanı açıp uygulamaların 
+      birbirlerinin bilgisini kullanmaması için bu alanları kontrol eder. Bu 
+      işlem için sanal adresler kullanılır. Ayrıca hafızada tutulmamasına 
+      rağmen kullanılan bilgiler olabilir. Bu bilgiler "takas alanı" 
+      denilen, diskin bir bölümünde tutulur. Hafızaya göre çok daha yavaş 
+      olduğu için, fazla erişime ihtiyaç olmayan ancak hafızada yer kaplayan 
+      bilgiler bu bölgeye gönderilir.</para>
 
-      <para>To ensure that each process gets enough CPU time, the kernel gives
-      priorities to processes and gives each of them a certain amount of CPU
-      time before it stops the process and hands over the CPU to the next one.
-      <emphasis>Process management</emphasis> <indexterm>
-          <primary>process management</primary>
-        </indexterm>not only deals with CPU time delegation (called
-      scheduling), but also with security privileges, process ownership
-      information, communication between processes and more.</para>
+      <para>Her uygulamanın yeterli işlemci gücü kullanmasından emin olmak 
+      için, çekirdek işlemlere öncelikler atar ve buna göre işlemci kullanım 
+      süreleri belirler.
+      <emphasis>İşlem yönetimi</emphasis> <indexterm>
+          <primary>işlem yönetimi </primary>
+        </indexterm>sadece işlemci ve sıra işlemleri ile sınırlı değildir. 
+      Aynı zamanda güvenlik öncelikleri, işlem sahiplik bilgileri ve 
+      işlemler arasındaki iletişimi de kapsar.</para>
 
-      <para>Finally, for a kernel to actually work on a system, it must
-      provide the means to the system and the programmer to control itself and
-      give or receive information from which new decisions can be made. Using
-      <emphasis>system calls</emphasis><indexterm>
-          <primary>system call</primary>
-        </indexterm> a programmer can write applications that query the kernel
-      for information or ask the kernel to perform a certain task (for
-      instance, manipulate some hardware and return the result). Of course,
-      such calls must be safe to use so that malicious programmers can't bring
-      the system down with a well-crafted system call.</para>
+      <para>Son olarak çalışan bir sistemin, uygulamaların çalışabilmesi için çekirdek ile iletişim kurmalarının yolunu sağlaması gerekmektedir. Çekirdekten bilgi almak veya çekirdeğe bir donanım işlemi yaptırıp sonucu hakkında dönüt almak gerektiği durumlarında uygulamalar 
+      <emphasis>sistem çağrıları</emphasis><indexterm>
+          <primary>sistem çağrıları</primary>
+        </indexterm> kullanır. Elbette bu çağrılar sistemin çalışmasını 
+      bozacak sakıncalı işlemlere izin vermeyecek şekilde dizayn edilmelidir.</para>
 
-      <para>A Linux operating system, like Gentoo Linux, uses Linux as the
-      kernel.</para>
+      <para>Gentoo gibi bir Linux işletim sistemi, çekirdek olarak 
+      Linux kullanır.</para>
     </section>
 
     <section>
-      <title>System Libraries</title>
+      <title>Sistem kütüphaneleri</title>
 
-      <para>Because a kernel can't do much out of itself, it must be triggered
-      to perform tasks. Such triggers are made by applications, but these
-      applications must of course know how to place system calls for the
-      kernel. Because each kernel has a different set of system calls
-      available (it is very system specific), programmers have created
-      standards with which they can work. Each operating system supports these
-      standards, and these are then translated to the system specific
-      calls<indexterm>
-          <primary>system library</primary>
-        </indexterm> for that operating system.</para>
+      <para>Çekirdek tek başına pek fazla işlem yapamayacağı için, uygulamalar tarafından tetiklenmesi gerekir. İşlevselliği artıran bu uygulamalar sistem çağrılarını kullanmayı bilmelidir. Her işletim sisteminin sistem çağrıları farklı olduğu için, programcılar bu çağrıları belirli standartlara göre kodlarlar. İşletim sistemleri de bu standartları desteklediği sürece bu çağrıları çekirdeğin anlayıcı bir hale,
+      <indexterm>
+          <primary>sistem kütüphaneleri</primary>
+        </indexterm> kullanarak getirirler.</para>
 
-      <para>One example standard is the C library<indexterm>
-          <primary>C library</primary>
-        </indexterm>, probably the most important system library available.
-      This library makes pretty vital operations available to the programmer,
-      such as basic input/output support, string handling routines,
-      mathematical methods, memory management and file operations. With these
-      functions a programmer can create software that builds on every
-      operating system that supports the C library. These methods are then
-      translated by the C library to the kernel specific system calls (if
-      system calls are necessary). This way the programmer doesn't need to
-      know the kernel internals and can even write software (once) that can be
-      build for many platforms.</para>
+      <para>Örnek bir standart olarak C dili kütüphanesi<indexterm>
+          <primary>C kütüphanesi</primary>
+        </indexterm> verilebilir ve muhtemelen sistem için en önemli 
+      kütüphaneyi oluşturur. Bu kütüphane programcılara girdi/çıktı desteği, 
+      matematiksel yöntemler, dosya işlemleri ve hafıza yönetimi gibi hayati 
+      işlemleri gerçekleştirecek ortamı sağlar. Bu sayede programcı, C dilini 
+      destekleyen her işletim sisteminde çalışabilen uygulamalar 
+      oluşturabilir. Bu kodlar C kütüphanesi sayesinde (gerek varsa) 
+      çekirdeğin anlayacağı sistem çağrılarına dönüştürülür. Bu sayede 
+      programcının her işletim sistemi için ayrı bilgi sahibi olmasına ve ayrı 
+      kodlar yazmasına gerek kalmaz.</para>
 
-      <para>There is no single specification on what a system library is. The
-      author of this book believes that system libraries are whatever library
-      is part of the default, minimal install of an operating system. As such,
-      system libraries for one operating system (and even Linux distribution)
-      can and will differ from the system libraries of another. Most Linux
-      distributions have the same system libraries, which is to be expected
-      because all Linux distributions can run the same software and this
-      software is of course built for these system libraries. Some
-      distributions just don't mark one library part of the default, minimal
-      install while others do.</para>
+      <para>"Sistem kütüphanesi" kavramının belirli bir tanımı yoktur. Bu 
+      kitabın yazarına göre sistem kütüphaneleri, çalışan en temel işletim 
+      sistemi kurulumunda bulunan kütüphanelerdir. Bu yüzden sistem 
+      kütüphaneleri işletim sisteminin çeşidine (hatta Linux altında dağıtımdan 
+      dağıtıma) değişir. Çoğu Linux dağıtımı aynı sistem kütüphanelerine 
+      sahiptir çünkü tüm Linux dağıtımları Linux için yazılmış ve aynı 
+      kütüphaneleri kullanan uygulamaları çalıştırabilmektedir. Ancak bazı 
+      dağıtımlar bir kütüphaneyi minimal bir kurulum için gerekli görmeyebilir.</para>
 
-      <para>The most well-known system library for Linux systems is the GNU C
-      Library, also known as glibc<indexterm>
+      <para>Linux sistemlerde en iyi bilinen sistem kütüphanesi GNU C 
+      kütüphanesidir, <indexterm>
           <primary>glibc</primary>
-        </indexterm>.</para>
+        </indexterm> olarak da bilinir.</para>
     </section>
 
     <section>
-      <title>System Tools</title>
+      <title>Sistem Araçları</title>
 
-      <para>Just like with system libraries there is no single specification
-      for <emphasis>system tools</emphasis><indexterm>
-          <primary>system tool</primary>
-        </indexterm>. But, unlike system libraries, system tools are quite
-      visible to the end user. Because of this, almost all Linux distributions
-      use the same system tools, or similar tools with the same features but
-      different implementations.</para>
+      <para>Sistem kütüphaneleri gibi, <emphasis>sistem araçları</emphasis><indexterm>
+          <primary>sistem araçları</primary>
+        </indexterm>nın da belirli bir özelliği bulunmamaktadır. Ama sistem 
+      kütüphanelerinin aksine, sistem araçları kullanıcıya daha görünür 
+      durumdadır. Bu yüzden nerdeyse bütün Linux dağıtımları aynı veya benzer 
+      özelliklere sahip sistem araçlarını kullanır.</para>
 
-      <para>But what are system tools? Well, with a kernel and some
-      programming libraries you can't manipulate your system yet. You need
-      access to commands, input you give to the system that gets interpreted
-      and executed. These commands do primitive stuff like file navigation
-      (change directory, create/remove files, obtain file listings, ...),
-      information manipulation (text searching, compression, listing
-      differences between files, ...), process manipulation (launching new
-      processes, getting process listings, exiting running processes, ...),
-      privilege related tasks (changing ownership of files, changing user ids,
-      updating file permissions, ...) and more.</para>
+      <para>Ancak sistem aracı nedir? Şöyle açıklayabiliriz: Çekirdek ve 
+      kütüphaneler ile sisteminizi yönetemezsiniz. Sisteme bazı komutlar 
+      vermeniz gerekir. Bu komutlar dosya işlemleri (dizinler arası gezinti, 
+      dosya oluşturma/silme, dosyaları listeleme...), bilgi yönetimi (yazı 
+      aramaları, sıkıştırma, dosyalar arasındaki farkları görüntüleme...), 
+      işlem yönetimi (yeni işlemleri çalıştırma, işlemlerin listesini alma, 
+      çalışan işlemleri sonlandırma...), yetkiye dayalı işler (dosyanın 
+      sahibini değiştirme, kullanıcı kimliklerini değiştirme, dosya izinlerini 
+      güncelleme) gibi temel işlemlerdir.</para>
 
-      <para>If you don't know how to deal with all this stuff, you don't know
-      how to work with your operating system. Some operating systems hide
-      these tasks behind complex tools, others have simple tools for each task
-      and bundle the power of all these tools. Unix (and Linux) is one of the
-      latter. Linux systems usually have the GNU Core Utilities for most of
-      these tasks.</para>
+      <para>Eğer bu işlemlerle nasıl başa çıkacağınızı bilmiyorsanız, işletim 
+      sisteminizi kullanmayı bilmiyorsunuz demektir. Bazı işletim sistemleri bu 
+      görevleri karmaşık araçların arkasına gizlerken, bazıları da her bir 
+      görev için basit ve ufak araçlar sunar. Unix (ve Linux) da böyledir. 
+      Linux sistemler genellikle bu işlemleri GNU temel araçları sayesinde 
+      yapar.</para>
     </section>
 
     <section>
-      <title>Development Tools</title>
+      <title>Geliştirme Araçları</title>
 
-      <para>With the above three components you have a running, working
-      operating system. You might not be able to do everything you want, but
-      you can update your system until it does what you want. How? By
-      installing additional tools and libraries until you have your functional
-      system.</para>
+      <para>Yukardaki üç bileşen ile çalışan bir işletim sistemine sahip 
+      olursunuz. Her istediğinizi yapamayabilirsiniz ancak yapabilir olana 
+      kadar sisteminizi güncelleyebilirsiniz. Nasıl mı? İstediğiniz işlemi 
+      yerine getiren uygulamaları ve kütüphaneleri sisteminize kurarak.</para>
 
-      <para>These additional tools and libraries are of course written by
-      programmers and they must be able to build their code so that it works
-      on your system. Some systems, like Gentoo Linux, even build this
-      software for you instead of relying on the prebuilt software by others.
-      To be able to build these tools, you need the source code of each tool
-      and the necessary tools to convert the source code to executable
-      files.</para>
+      <para>Bu uygulamalar ve kütüphaneler de tabi ki programcılar tarafından 
+      yazılmış ve sisteminizde çalışmak için "derlenmesi" gereken kodlardan 
+      oluşur. Kısaca sisteminizin anlayacağı dile çevrilmeleri gerekmektedir. 
+      Gentoo Linux gibi bazı işletim sistemlerinde, başkaları tarafından 
+      derlenmiş uygulamaları kullanmak yerine, uygulamaları kendiniz 
+      derlersiniz. Bunu yapabilmek için kurmak istediğiniz uygulamanın kaynak 
+      kodlarına ve derleme için gerekli araçlara ihtiyacınız vardır.</para>
 
-      <para>These tools are called a <emphasis>tool chain</emphasis><indexterm>
-          <primary>tool chain</primary>
-        </indexterm>: a set of tools that are used as in a chain in order to
-      produce a working application. A general tool chain consists out of a
-      text editor (to write the code in), compiler (to convert code to
-      machine-specific language), linker (to combine machine-code of several
-      sources - including prebuilt "shared" libraries - into a single,
-      executable file) and libraries (those I just mentioned as being "shared"
-      libraries).</para>
+      <para>Bu araçlar <emphasis>araç zinciri</emphasis><indexterm>
+          <primary>araç zinciri</primary>
+        </indexterm> (toolchain) olarak adlandırılır: Çalışan bir uygulama 
+      oluşturmak için zincir gibi çalışırlar. Genelde araç zinciri bir metin 
+      editörü (kodu yazmak için), bir derleyici (kodu makinanın anlayacağı dile 
+      çevirmek için), bağlayıcı (birçok makina kodunu birleştirip gerekli 
+      "paylaşılan" kütüphaneleri de dahil ederek çalışan bir dosya oluşturmak 
+      için) ve kütüphanelerden oluşur.</para>
 
-      <para>A tool chain is of the utmost importance for a developer; it is a
-      vital <emphasis>development tool</emphasis><indexterm>
-          <primary>development tool</primary>
-        </indexterm>, but not the only development tool. For instance,
-      developers of graphical applications generally need tools to create
-      graphics as well, or even multimedia-related tools to add sound effects
-      to their program. A development tool is a general noun for a tool that a
-      developer would need in order to create something, but isn't vital for
-      an operating system of an average non-developer user.</para>
+      <para>Araç zinciri bir geliştirici için en gerekli 
+      <emphasis>geliştirme aracıdır</emphasis><indexterm>
+          <primary>geliştirme aracı</primary>
+        </indexterm>. Ancak tüm ihtiyacı değildir. Örneğin,
+      görsel uygulamalar üreten geliştiriciler programları için grafiklere hatta 
+      çoklu ortam dosyalarına (ses, video) ihtiyaç duyar. Geliştirme araçları 
+      bir geliştiricinin birşeyler oluşturmasına yardımcı olan araçların genel 
+      adıdır ve geliştiriciler tarafından ihtiyaç duyulurlar, geliştirici 
+      olmayan ortalama bir kullanıcı için sistemde bulunmalarına gerek yoktur..
+     </para>
 
-      <para>The most well-known development tools are also delivered by the
-      GNU foundation, namely the GNU Compiler Collection, also known as
-      gcc<indexterm>
+      <para>En bilinen geliştirme araçları da GNU vakfı tarafından sağlanır: GNU Derleyici Koleksiyonu, nam-ı diğer gcc<indexterm>
           <primary>gcc</primary>
         </indexterm>.</para>
     </section>
 
     <section>
-      <title>End User Tools</title>
+      <title>Son Kullanıcı Araçları</title>
 
-      <para>Once a developer has finished creating its product, you have an
-      end-user tool with accompanying libraries (which might be required by
-      other tools that are build on top of this product). These end tools are
-      what makes a system unique for a user: they represent what a user wants
-      to do with his system. Although not required by an operating system they
-      are required by the end user and are therefore very important for his
-      system.</para>
+      <para>Bir geliştiricinin oluşturduğu uygulama, son kullanıcı uygulaması 
+      olarak adlandırılır. Bu uygulamalar sistemi diğer sistemlerden ayıran, 
+      kullanıcının ihtiyacına göre sistemde bulunan araçlardır. Bunlara, normal 
+      bir kullanıcının kullandığı uygulamalardan ofis uygulamaları, internet 
+      tarayıcıları, grafik düzenleme yazılımları gibi örnekler verebiliriz. Son 
+      kullanıcı uygulamaları sistemin çalışması için zorunlu değillerdir ama 
+      kullanıcı için önem taşıdıklarından sistemde bulunmaları gerekir.</para>
 
-      <para>Most operating systems don't install all or most of the end-user
-      tools because there are just too many to choose from. Some operating
-      systems don't even provide the means to install end-user tools to their
-      users but rely on the ingenuity of each programmer to create an
-      installer that sets up the tool on the system. Other operating systems
-      bring a small but considerable subset of end-user tools with them so
-      that their users can quickly update their system to whatever shape they
-      want without requiring a long and difficult search across the Internet
-      (or even worse, computer/software shop) to find the software they
-      need.</para>
+      <para>Çoğu işletim sistemi son kullanıcı araçlarını işletim sistemi ile 
+      beraber sunmaz. Çünkü seçilemeyecek kadar fazla alternatifleri vardır. 
+      Bazı işletim sistemleri bu uygulamaları kullanıcıya seçtirmek için bile 
+      herhangi bir parça barındırmaz (Microsoft Windows gibi) ve kurulum 
+      işlemini geliştiricilerin hazırladığı kurulum programına bırakır. 
+      Bazıları ise ufak araçlar ile bu uygulamaların arasından seçim yapması 
+      için kullanıcıya sunar. Bu sayede kullanıcı, ihtiyacı olan yazılımı 
+      kurmak için internette (hatta daha kötüsü, marketlerin yazılım 
+      raflarında) aramak zorunda kalmadan sistemine kurabilir.</para>
 
-      <para>Examples of end-user tools are well known, such as office suites,
-      graphic design tools, multimedia players, communication software,
-      Internet browsers, ...</para>
+      <para>İyi bilinen örnekleri olarak ofis uygulamaları,
+      grafik araçları, çokluortam oynatıcılar, iletişim yazılımları ve
+      internet tarayıcıları verilebilir.</para>
     </section>
 
     <section>
-      <title>Okay, I bite, What is this GNU?</title>
+      <title>Tamam, Pes, GNU Ne Demek?</title>
 
-      <para>The GNU Project is an effort of several programmers and developers
-      to create a free, Unix-like operating system. GNU<indexterm>
+      <para>GNU projesi sayısız programcının ve geliştiricinin, Unix tarzı ücretsiz bir işletim sistemi ortaya çıkarmak üzere bir araya gelmesiyle oluşmuştur. GNU<indexterm>
           <primary>GNU</primary>
-        </indexterm> is a recursive acronym that stands for <emphasis>GNU is
-      Not Unix</emphasis>, because it is Unix-like but contains no Unix code
-      and is (and remains) free. The GNU foundation, the legal entity behind
-      the GNU project, sees free as more than just the financial meaning of
-      free: the software should be free to use for any purpose whatsoever,
-      free to study and modify the source code and behaviour, free to copy and
-      free to distribute the changes you made.</para>
+        </indexterm>'nun açılımı <emphasis>GNU is Not Unix</emphasis>, "GNU Unix Değildir" 
+      anlamına gelir. Çünkü Unix'e benzeyen ancak içerisinde Unix kodu 
+      bulundurmayan, ücretsiz (ve öyle kalacak olan) bir işletim sistemidir. 
+      GNU projesinin arkasındaki kuruluş olan GNU vakfı, üretilen yazılımların 
+      ücretsiz olmasından çok "özgür" olmasını önemser. Bu özgürlüğe kaynak 
+      kodlarını inceleme, kopyalama, değiştirme ve değiştirilmiş halde tekrar 
+      yayınlama özgürlükleri de dahildir.</para>
 
       <para>This idea of free software is a noble thought that is active in
       many programmers' minds: hence many software titles are freely
