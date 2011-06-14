@@ -856,44 +856,41 @@ rm: cannot remove '/etc/passwd': Permission denied</programlisting>
       file you see in the file system is a link to a location. With hard
       links, you just create additional links.</para>
 
-      <para>Due to their technology, hard links can only point to file
-      locations on the same medium and they cannot handle directories.</para>
+      <para>Teknolojilerinden dolayı, sert bağlar sadece aynı ortamda bulundukları dosyalara işaret edebilirler ve dizinleri işleme yetenekleri yoktur.</para>
 
-      <para>To create links, use <command>ln</command><indexterm>
+      <para>Bağ oluşturmak için <command>ln</command><indexterm>
           <primary>ln</primary>
-        </indexterm> (hard links) or <command>ln -s</command>
-      (symlinks):</para>
+        </indexterm> (sert bağ) veya <command>ln -s</command>
+      (sembolik bağ) kullanın:</para>
 
-      <programlisting>$ <command>ln targetfilename newfilename</command>
-$ <command>ln -s targetfilename newfilename</command></programlisting>
+      <programlisting>$ <command>ln hedefdosyaadı yenidosyaadı</command>
+$ <command>ln -s hedefdosyaadı yenidosyaadı</command></programlisting>
 
-      <para>Thanks to links, you can manage your files more easily. For
-      instance, you can have an important text file located inside
-      <filename>~/Documents/Work/Thesis/myThesis.txt</filename> but link to it
-      from your home directory (<filename>~/myThesis.txt</filename> points to
-      <filename>~/Documents/Work/Thesis/MyThesis.txt</filename>) so that you
-      don't have to traverse all these directories every time you want to
-      open/edit the file.</para>
+      <para>Bağlar sayesinde dosyalarınızı daha kolay yönetebilirsiniz. Örneğin 
+      <filename>~/Documents/Work/Thesis/myThesis.txt</filename> konumunda 
+      önemli bir dosyanız varsa, bu dosya için ev dizininizde (<filename>
+      ~/myThesis.txt</filename> adında bir bağ oluşturabilir ve her dosyaya 
+      ulaşmak istediğinizde birkaç dizin geçmek zorunda kalmazsınız.</para>
     </section>
 
     <section>
-      <title>File / Command Completion</title>
+      <title>Dosya / Komut Tamamlama</title>
 
-      <para>A powerful feature of most Linux shells is file and command
-      completion.</para>
+      <para>Birçok Linux kabuğunun güçlü bir özelliği de komut tamamlamadır.</para>
 
-      <para>When you want to edit a file called, for instance, opentasks.txt,
-      you can start with typing "<command>nano o</command>" followed by the
-      &lt;tab&gt; key. If <filename>opentasks.txt</filename> is the only file
-      or directory that starts with an o, the shell will automatically expand
-      the command to "<filename>nano opentasks.txt</filename>". If there are
-      more files or directories that start with o, typing &lt;tab&gt; twice
-      will show you a list of candidates.</para>
+      <para>Örneğin opentasks.txt isminde bir dosyayı düzenlemek istiyorsunuz. 
+      "<command>nano o</command>" yazıp, ardından &lt;tab&gt; tuşuna 
+      basarsanız, eğer bulunduğunuz dizinde başka o harfi le başlayan dosya 
+      yoksa, kabuk komutu tamamlayıp "<filename>nano opentasks.txt</filename>
+      ". haline getirecektir. Eğer birden fazla o harfi ile başlayan öğe varsa 
+      iki kez &lt;tab&gt; tuşuna basarak hangileri olduğunu görebilirsiniz.
+      </para>
 
-      <para>The same is true for commands. If nano is the only command
-      starting with na (it isn't, but suppose it is) then typing "na" followed
-      by a &lt;tab&gt; expands the command to nano. Pressing &lt;tab&gt; twice
-      if it isn't the only command displays all matches:</para>
+      <para>Aynısı komutlar için de geçerli. Eğer nano tek "na" ile başlayan 
+      tek komut olsaydı (ki değil, öyle varsayalım) "na" yazdıktan sonra  &lt;
+      tab&gt; tuşuna basmanız "nano" olarak tamamlanmasına yeterdi. Birden 
+      fazla "na" ile başlayan komut olduğu için, seçenekleri görmek için burda 
+      da iki kez basabilirsiniz:</para>
 
       <programlisting>$ <command>na</command><emphasis>&lt;tab&gt;&lt;tab&gt;</emphasis>
 namei           nautilus
@@ -903,36 +900,36 @@ $ <command>na</command></programlisting>
     </section>
 
     <section>
-      <title>Switching Terminals</title>
+      <title>Terminaller Arası Geçiş</title>
 
-      <para>One of Unix / Linux' advantages is the support for multiple
-      terminals<indexterm>
-          <primary>virtual terminal</primary>
-        </indexterm>. When you are logged on to your system, you are actually
-      watching one of the (virtual) terminals, most likely the first one. You
-      can switch from one terminal to another using Alt+F# where F# is F1, F2,
-      ... If you are on a graphical session, you'll need to use Ctrl+Alt+F#
-      first. The graphical screen is positioned at the first terminal that can
-      not be used to log on to (most likely Alt+F7).</para>
+      <para>Unix / Linux sistemlerin bir avantajı da birden fazla
+      terminali<indexterm>
+          <primary>sanal terminal</primary>
+        </indexterm> desteklemesidir. Sisteminize giriş yaptığınızda aslında 
+      karşınıza çıkan yer (sanal) terminaldir, büyük ihtimalle birinci sanal 
+      terminal. Bir terminalden diğerine Alt+F#  tuşları işe geçebilirsiniz. 
+      Burdaki F#; F1, F2, F3... tuşlarını temsil etmektedir. Eğer grafiksel 
+      ortamda iseniz ilk olarak Ctrl+Alt+F# kullanmalısınız. Grafiksel ortam 
+      kullanıcının oturum açamayacağı ilk ekranda çalışır (büyük ihtimalle 
+      Alt+F7).</para>
 
-      <para>The support for multiple terminals allows you to log on to your
-      system several times and spread the tasks you want to execute in
-      parallel across the various terminals. For instance, if you are
-      configuring a program, you might want to have the configuration file
-      itself open in one terminal and the program in another.</para>
+      <para>Birden çok terminalde çalışmak size birçok farklı işi aynı anda 
+      yürütme kolaylığı sağlar. Örneğin bir uygulamayı düzenliyorsanız 
+      terminalin birinde uygulamanın kendisini, diğerinde de ayar dosyasını 
+      açmak isteyebilirsiniz.</para>
 
-      <para>Hint: if you are working on the command line, you can also use the
+      <para>İpucu: Eğer komut satırında çalışıyorsanız, terminaller arası geçiş için
       <command>chvt</command><indexterm>
           <primary>chvt</primary>
         </indexterm> command to switch between terminals: <command>chvt
-      2</command> switches to the second terminal (similar to Alt+F2).</para>
+      2</command> komutunu da kullanabilirsiniz. (Alt+F2'ye benzer).</para>
     </section>
 
     <section>
-      <title>Logging Out</title>
+      <title>Oturumu Kapatmak</title>
 
-      <para>To log out from an existing session, enter <command>exit</command>
-      or press Ctrl+d:</para>
+      <para>Eğer terminal oturumunuzu kapatmak isterseniz <command>exit</command>
+      komutu verebilir veya Ctrl+d kombinasyonunu kullanabilirsiniz:</para>
 
       <programlisting>captain@seaheaven ~ $ <command>exit</command>
 
@@ -942,159 +939,143 @@ seaheaven login: </programlisting>
     </section>
 
     <section>
-      <title>Shutting Down</title>
+      <title>Bilgisayarı Kapatmak</title>
 
-      <para>Finally, if you want to shut down<indexterm>
-          <primary>shutdown</primary>
-        </indexterm> your system, you will first need to become root. You can
-      do this by switching to another terminal and log on as root, but you can
-      also use the su command. This command will ask you to enter the root
-      password after which you are known to the system as the root
-      user:</para>
+      <para>Sonunda bilgisayarınızı kapatmak<indexterm>
+          <primary>kapatmak</primary>
+        </indexterm> isterseniz, öncelikle root haklarına sahip olmanız 
+        gerekmekte. Bunun için başka bir terminale geçip root olarak giriş 
+        yapabilir veya "su" komutunu kullanabilirsiniz. Bu komut sizden root 
+        şifresini isteyecek ve doğru girdiğiniz zaman size root yetkisi 
+        verecektir:</para>
 
       <programlisting>captain@seaheaven ~ $ <command>su -</command>
 Password: <emphasis>(Enter root password)</emphasis>
 root@seaheaven ~ # </programlisting>
 
-      <para>Now, you can issue the shutdown command to shut down (-h) or reboot<indexterm>
-          <primary>reboot</primary>
-        </indexterm> (-r) the system immediately:</para>
+      <para>Şimdi `shutdown` komutunu kullanarak sistemi kapatabilir (-h) veya yeniden başlatabilirsiniz
+        <indexterm>
+          <primary>yeniden başlatma</primary>
+        </indexterm> (-r):</para>
 
       <programlisting>root@seaheaven ~ # <command>shutdown -h now</command></programlisting>
     </section>
   </section>
 
   <section>
-    <title>Getting Help</title>
+    <title>Yardım Almak</title>
 
-    <para>Linux might seem a bit complex at first, especially because the
-    tools novice users use are the same tools that experts use, making the
-    tools accept expert options starters wouldn't understand. Handbooks such
-    as this one can only help users find their way, but once in a while any
-    user, beginner or advanced, will need something to fall back to. Luckily,
-    there are several resources you can address...</para>
+    <para>Linux başta biraz karmaşık görünebilir, özellikle yeni başlayan kullanıcıların kullandığı komutlar ile ileri düzey kullanıcıların kullandıkları komutların aynı olmasından dolayı. Bu kitap gibi kaynaklar kullanıcılara yardım edebilir, ve er ya da geç her kullanıcı başvuracağı bir yardım kaynağına ihtiyaç duyacaktır. Linux'da başvuracak kaynak hiç de az değildir...</para>
 
     <section>
-      <title>Man Pages</title>
+      <title>Klavuz (Man) Sayfaları</title>
 
-      <para>The <emphasis>manual page</emphasis><indexterm>
-          <primary>manual page</primary>
-        </indexterm> is available on the Linux system itself and can be
-      accessed through the <command>man</command><indexterm>
+      <para><emphasis>Klavuz sayfaları</emphasis><indexterm>
+          <primary>klavuz sayfası</primary>
+        </indexterm> Linux sisteminin içinde bulunur ve <command>man</command><indexterm>
           <primary>man</primary>
-        </indexterm> command. By entering <command>man</command> followed by
-      the command you want information about you receive the manual page of
-      that command, explaining what the command does, what syntax you should
-      use, what options it supports and what commands or files are related to
-      this command.</para>
+        </indexterm> komutu ile ulaşılabilir. <command>man</command> komutunun 
+        ardından bir komutu yazarak o komut hakkında bilgi alabilirsiniz: 
+        Komutun ne işe yaradığı, nasıl kullanılması gerektiği, hangi dosya 
+        veya komutlar ile ilişkisi olduğu vs.</para>
 
-      <para>The manual page is usually structured as follows:</para>
+      <para>Yardım sayfaları şu yapıdadır:</para>
 
       <itemizedlist>
         <listitem>
-          <para>name of the command with a one-line description</para>
+          <para>komutun tek satırlık açıklama ile birlikte ismi</para>
         </listitem>
 
         <listitem>
-          <para>synopsis of the command, showing the syntax the command
-          accepts</para>
+          <para>komutun özeti, hangi seçenekler ile kullanılabileceği</para>
         </listitem>
 
         <listitem>
-          <para>options of the command with an explanation of each
-          option</para>
+          <para>her birinin açıklaması ile komutun seçenekleri</para>
         </listitem>
 
         <listitem>
-          <para>further information on the command, like usage restrictions,
-          default behaviour, ...</para>
+          <para>komut hakkında kullanım kısıtlamaları veya öntanımlı davranışı gibi daha detaylı bilgi</para>
         </listitem>
 
         <listitem>
-          <para>copyright and authorship information</para>
+          <para>telif ve sahiplik hakları</para>
         </listitem>
 
         <listitem>
-          <para>related manual pages</para>
+          <para>ilgili yardım sayfaları</para>
         </listitem>
       </itemizedlist>
 
-      <para>Manual pages not only exist for commands, but for files
-      (configuration files or device files), system calls and library
-      functions (programming related information) and even standards and
-      conventions. These topics are categorized in the following sections with
-      the accompanying numbers:</para>
+      <para>Yardım sayfaları sadece komutlar için değil; dosyalar (sistem veya 
+      aygıt dosyaları), sistem çağrıları ve kütüphane fonksiyonları 
+      (programlama ile alakalı bilgiler) hatta standartlar ve sözleşmeler ile 
+      ilgili dahi olabilir. Bu başlıklar eşlik eden numaralar ile beraber 
+      aşağıdaki kategorilere ayrılmıştır:</para>
 
       <orderedlist>
         <listitem>
-          <para>user commands</para>
+          <para>kullanıcı komutları</para>
         </listitem>
 
         <listitem>
-          <para>system calls</para>
+          <para>sistem çağrıları</para>
         </listitem>
 
         <listitem>
-          <para>library functions</para>
+          <para>kütüphane fonksiyonları</para>
         </listitem>
 
         <listitem>
-          <para>special files (device files)</para>
+          <para>özel dosyalar (aygıt dosyaları)</para>
         </listitem>
 
         <listitem>
-          <para>file formats and protocols</para>
+          <para>dosya biçimleri ve protokolleri</para>
         </listitem>
 
         <listitem>
-          <para>games and funny programs</para>
+          <para>oyunlar ve eğlenceli programlar</para>
         </listitem>
 
         <listitem>
-          <para>overview, conventions and miscellaneous topics</para>
+          <para>genel bakış, sözleşmeler ve ilgili başlıklar</para>
         </listitem>
 
         <listitem>
-          <para>administrative and privileged commands</para>
+          <para>yönetimle ilgili ve ayrıcalıklı komutlar</para>
         </listitem>
       </orderedlist>
 
-      <para>For information about these sections, open up the introduction
-      page for each section. For instance, the introduction page for the games
-      section can be accessed through <command>man 6 intro</command>. Knowing
-      what sections are available can be important, especially when there are
-      topics in different sections which have the same name. An example is
-      passwd: there is a manual page for the <command>passwd</command> command
-      (<command>man 1 passwd</command>) and one for the
-      <filename>passwd</filename> file (<command>man 5 passwd</command>). If
-      one would enter <command>man passwd</command>, the first section that
-      has a manual page for the topic is displayed (in this case, the first
-      section).</para>
+      <para>Bu bölümler hakkında bilgi için her bölüm hakkındaki tanıtım 
+      (intro) sayfasını açın. Örneğin oyunlar bölümünün tanıtım sayfasına 
+      <command>man 6 intro</command> komutu ile ulaşabilirsiniz. Hangi bölümün 
+      ne işe yaradığını bilmek önemli olabilir, özellikle de aynı başlık 
+      birden fazla kategoride bulunmaktaysa. Bu duruma örnek olarak passwd 
+      verilebilir: passwd komutu için bir yardım sayfası (<command>man 1 passwd
+      </command>) ve passwd dosyası için başka bir yardım sayfası (<command>
+      man 5 passwd</command>) bulunmaktadır. Eğer numara belirtmeden 
+      yazarsanız, sıralamada önce gelen yardım sayfası açılacaktır (bu örnekte 
+      ilk bölüm).</para>
 
-      <para>Once you are inside a manual page, you can navigate through it
-      using the up/down arrow keys and the PgUp/PgDn keys. You can also search
-      for some terms (press / followed by the term) and more. A full
-      explanation of all the commands of the manual viewer (which, on most
-      systems, is the <command>less</command><indexterm>
+      <para>Yardım sayfasının içindeyken, yukarı/aşağı ok tuşları ve PgUp/PgDn tuşları ile gezinebilirsiniz. Ayrıca istediğiniz bir yazıyı aratabilirsiniz ( / karakterine basıp arkasından aramak istediğiniz metni girin). Yardım sayfası izleyicisinin (çoğu sistemde <command>less</command><indexterm>
           <primary>less</primary>
-        </indexterm> tool) can be obtained by pressing 'h'.</para>
+        </indexterm>) komutları hakkındaki tam açıklamayı 'h' tuşuna basarak görebilirsiniz.</para>
 
-      <para>To quit viewing the manual page, press 'q'.</para>
+      <para>Yardım sayfasından çıkmak için ise 'q' tuşuna basın.</para>
     </section>
 
     <section>
-      <title>Info Pages</title>
+      <title>Bilgi Sayfaları</title>
 
-      <para>Another reference tool on your system is the
+      <para>Sistemde bir diğer başvuracağınız kaynak da bilgi (
       <command>info</command><indexterm>
-          <primary>info</primary>
-        </indexterm> page help system. The <command>info</command> tool allows
-      you to browse through info pages using a hierarchical approach
-      (next/previous section, go upwards, ...) as well as using hyperlinks
-      (select a topic in the info page to go to the section on that
-      topic).</para>
+          <primary>bilgi</primary>
+        </indexterm>) sayfası yardım sistemidir. <command>info</command> aracı 
+      hiyerarşik olarak (üst/alt bölüm, sonraki sayfa vs.) ve bağlantılar 
+      kullanarak bilgi sayfaları arasında gezmenizi sağlar.</para>
 
-      <para>Let's take a look at the GCC info pages:</para>
+      <para>GCC'nin bilgi sayfalarına bir göz atalım:</para>
 
       <programlisting>~$ <command>info gcc</command>
 ...
@@ -1139,23 +1120,24 @@ process at an intermediate stage.  For example, the `-c' option says
 not to run the linker.  Then the output consists of object files output
 by the assembler.</programlisting>
 
-      <para>You are now in the node called "Invoking GCC". The next
-      (<command>n</command>) section is "C Implementation", the previous
-      (<command>p</command>) is "Standards" and if you go up
-      (<command>u</command>), you get to the top of the info document
-      again.</para>
+      <para>Şu anda "Invoking GCC" bölümündesiniz. Sonraki
+      (<command>n</command>) bölüm "C Implementation", önceki
+      (<command>p</command>) ise "Standards". Eğer yukarı
+      (<command>u</command>) giderseniz bilgi sayfasının tepesini tekrar 
+      görürsünüz.</para>
 
-      <para>Info pages are well used by various GNU projects (such as GCC).
-      However, manual pages are more popular - perhaps because most developers
-      find them easier to write.</para>
+      <para>Bilgi sayfaları birçok GNU projesinde (örneğin GCC) gayet iyi 
+      biçimde kullanılmıştır. Yine de yardım (man) sayfaları daha popülerdir, 
+      muhtemelen bunun sebebi de geliştiricilerin yardım sayfayı yazmayı daha 
+      kolay bulması.</para>
     </section>
 
     <section>
-      <title>Immediate Syntax Help</title>
+      <title>Acil Sözdizimi Yardımı</title>
 
-      <para>If you are not looking for an explanation on the command but want
-      to know its syntax, most commands provide immediate help through the
-      <command>-h</command> or <command>--help</command> arguments:</para>
+      <para>Eğer bir komutun açıklamasını değil de nasıl kullanılacağını 
+      öğrenmek istiyorsanız, birçok komutta <command>-h</command> veya 
+      <command>--help</command> parametresini kullanabilirsiniz:</para>
 
       <programlisting>$ <command>man -h</command>
 man, version 1.6e
@@ -1187,18 +1169,16 @@ usage: man [-adfhktwW] [section] [-M path] [-P pager] [-S list]
     </section>
 
     <section>
-      <title>Package-provided Documentation</title>
+      <title>Paket İle Sağlanan Belgeler</title>
 
-      <para>Some packages provide more documentation in the form of guides (in
-      HTML, PDF or other formats), README files and more. You will find most
-      of this documentation at <filename>/usr/share/doc</filename>. Gentoo
-      Linux compresses the documents using <command>bzip2</command> or
-      <command>gzip</command> (both well known compression tools in the Unix
-      world). To view the documents, you will first need to decompress those
-      into a location you have write privileges to.</para>
+      <para>Bazı paketler daha fazla belge (HTML, PDF veya diğer türde) 
+      sağlıyor olabilir. Bu belgelerin çoğunu <filename>/usr/share/doc
+      </filename> altında bulabilirsiniz. Gentoo Linux belgeleri <command>bzip2</command> veya <command>gzip</command> (ikisi de Unix dünyasında iyi 
+      bilinen sıkıştırma araçlarıdır) kullanarak sıkıştırır. Bu yüzden bu 
+      dosyalara göz atmak için önce izniniz olan bir dizine genişletmeniz 
+      gerekmekte.</para>
 
-      <para>For instance, the zip package contains a document explaining what
-      algorithm the tool uses to (de)compress data:</para>
+      <para>Örneğin zip paketi aracın sıkıştırma için hangi algoritmayı kullandığını açıklayan belgeye sahip:</para>
 
       <programlisting>$ <command>cd /usr/share/doc/zip-*</command>
 $ <command>ls</command>
@@ -1207,70 +1187,65 @@ README.bz2         timezone.txt.bz2    txtvsbin.txt.bz2 WHATSNEW.bz2
 WHERE.bz2           ziplimit.txt.bz2
 $ <command>bunzip2 -c algoritm.txt.bz2 &gt; ~/algorithm.txt</command></programlisting>
 
-      <para>The resulting file, <filename>algorithm.txt</filename>, can be
-      found in the home directory (<filename>~</filename><indexterm>
+      <para>Sonuçta oluşan dosya, <filename>algorithm.txt</filename>, ev dizininde bulunabilir (<filename>~</filename><indexterm>
           <primary>~</primary>
-        </indexterm> is an abbreviation for the home directory of the current
-      user). In this case, the file is a regular text file which can be viewed
-      through the <command>less</command> command, which is the same command
-      used for manual pages.</para>
+        </indexterm> kullanıcının ev dizinini işaret eder). Bu örnekte dosya 
+      basit bir yazı dosyası ve <command>less</command> komutu ile 
+      incelenebilir</para>
 
-      <para>In the above example, a redirection is used: the output of one
-      command (<command>bunzip2 -c algorithm.txt.bz2</command>) is not shown
-      on the screen, but rather redirected into a file
-      (<filename>algorithm.txt</filename>). Redirection is discussed later
-      on.</para>
+      <para>Yukardaki örnekte bir yönlendirme kullanıldı: Bir komutun çıktısı (
+      <command>bunzip2 -c algorithm.txt.bz2</command>) ekranda görünmek yerine 
+      bir dosyaya (<filename>algorithm.txt</filename>)aktarıldı. Yönlendirmeyi 
+      ileri bölümlerde detaylı olarak göreceğiz.</para>
     </section>
 
     <section>
-      <title>Online Documentation</title>
+      <title>Çevrimiçi Belgeler</title>
 
-      <para>Most projects have extensive documentation available. You are
-      certainly advised to take a look at the projects' web sites or search
-      through the internet for available guides and books. Sometimes, the best
-      documentation is not written by the project itself but by satisfied
-      users.</para>
+      <para>Birçok proje geniş yardım belgesi desteği içerir. Yardım almak 
+      için projenin web sayfasına giderek veya arama yaparak hakkında yazılmış 
+      belgelere ulaşabilirsiniz. Çoğu kez en güzel belgeler projenin sahipleri 
+      tarafından değil, deneyimli kullanıcıları tarafından yazılır.</para>
     </section>
   </section>
 
   <section>
-    <title>Exercises</title>
+    <title>Alıştırmalar</title>
 
     <orderedlist>
       <listitem>
-        <para>Try to organize your home directory in logical sections. For
-        instance, create directories where you put your personal documents,
-        pictures, work-related documents and temporary documents.</para>
+        <para>Ev dizininizi mantıksal bölümler halinde düzenlemeye çalışın. 
+        Örneğin kişisel belgeleriniz, resimleriniz, işle alakalı belgeleriniz 
+        ve geçici dosyalarınız için dizinler oluşturun.</para>
       </listitem>
 
       <listitem>
-        <para>Unix/Linux systems generally offer four compression methods.
-        Whereas Zip is well known on the Microsoft Windows operating system,
-        Unix/Linux uses GZip or BZip2 together with tar. How is "tar" used
-        with gzip/bzip2? What is the fourth compression method?</para>
+        <para>icrosoft Windows'da yaygın olan Zip sıkıştırması da dahil olmak 
+        üzere, Unix/Linux sistemler genelde dört sıkıştırma yöntemi sunar. 
+        "GZip" ve "BZip2" tar ile birlikte kullanılır. Peki nasıl birlikte 
+        kullanılır bu sıkıştırma yöntemleri, ayrıca dördüncü yöntem nedir?</para>
       </listitem>
 
       <listitem>
-        <para>As stated, Unix/Linux systems have no undo functionality: when
-        you remove a file, it is removed. However, due to the technicalities
-        of removing files (in essence only the reference to the file is
-        removed, but its content remains on disk until it is overwritten)
-        there are tools available that help you recover files. Try finding a
-        few examples of such file recovery utilities for Linux.</para>
+        <para>Belirttiğimiz gibi, Unix/Linux sistemlerde geri alma gibi bir 
+        seçenek bulunmamakta. Yani bir dosyayı sildiğiniz zaman, dosya 
+        silinmiştir. Ancak dosya silmenin teknik olarak doğasından dolayı, bir 
+        dosya silinse bile diskte kalır, ta ki diskte o bölüme başka bir veri 
+        yazılana kadar. Linux'da veri kurtarma uygulamalarına örnekler bulmaya 
+        çalışın.</para>
       </listitem>
     </orderedlist>
   </section>
 
   <section>
-    <title>Further Resources</title>
+    <title>Ek Kaynaklar</title>
 
     <itemizedlist>
       <listitem>
         <para><ulink
         url="http://www.tldp.org/LDP/intro-linux/html/index.html">Introduction
-        to Linux, A Hands-On Guide</ulink> by Machtelt Garrels (also available
-        as <ulink
-        url="http://www.tldp.org/LDP/intro-linux/intro-linux.pdf">PDF</ulink>)</para>
+        to Linux, A Hands-On Guide</ulink> by Machtelt Garrels (<ulink
+        url="http://www.tldp.org/LDP/intro-linux/intro-linux.pdf">PDF</ulink> olarak da bulunmakta, İngilizce)</para>
       </listitem>
     </itemizedlist>
   </section>
